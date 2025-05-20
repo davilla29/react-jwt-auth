@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import axios from "../utilis/axios";
-import "./Register.css";
+import axios from "../utils/axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -18,10 +18,17 @@ export default function Register() {
 
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+
+  useEffect(() => {
+    if (loading) {
+      console.log("hello, i am loading");
+    }
+  }, [loading]);
 
   useEffect(() => {
     if (message) {
@@ -37,6 +44,7 @@ export default function Register() {
     try {
       const res = await axios.post("/auth/register", formData);
       setMessage(res.data.message);
+      setTimeout(navigate("/login"), 3000);
     } catch (err) {
       setMessage(err.response?.data?.message || "Registration failed");
     } finally {
@@ -45,9 +53,10 @@ export default function Register() {
   };
 
   return (
-    <div className="register-container">
-      <form onSubmit={handleSubmit} className="register-form">
-        <h2>Register</h2>
+    <div className="container">
+      <form onSubmit={handleSubmit} className="form">
+        <h2>Registration Form</h2>
+
         {Object.keys(formData).map((key) => (
           <input
             key={key}
@@ -56,7 +65,7 @@ export default function Register() {
             value={formData[key]}
             onChange={handleChange}
             placeholder={key}
-            required
+            // required
           />
         ))}
         <button type="submit">
