@@ -56,7 +56,7 @@ export default function Register() {
             value={formData[key]}
             onChange={handleChange}
             placeholder={key}
-            // required
+            required
           />
         ))}
         <button type="submit">
