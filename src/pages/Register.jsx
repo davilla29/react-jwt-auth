@@ -25,14 +25,15 @@ export default function Register() {
 
   useEffect(() => {
     if (message) {
-      const timer = setTimeout(() => setMessage(""), 3000);
-      return () => clearTimeout(timer); // Clean up on unmount or message change
+      const timer = setTimeout(() => setMessage(""), 6000);
+      return () => clearTimeout(timer);
     }
   }, [message]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setMessage("");
     try {
       const res = await axios.post("/auth/register", formData);
       setMessage(res.data.message);
@@ -55,10 +56,12 @@ export default function Register() {
             value={formData[key]}
             onChange={handleChange}
             placeholder={key}
-            required
+            // required
           />
         ))}
-        <button type="submit">{loading ? "Loading..." : "Register"}</button>
+        <button type="submit">
+          {loading ? <div className="circle-loader"></div> : "Register"}
+        </button>
         {/* {loading ? <p>Loading...</p>: <p>{message}</p>  } */}
         {message && <p>{message}</p>}
       </form>

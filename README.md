@@ -1,12 +1,34 @@
-# React + Vite
+# 🛡️ React Auth System (Frontend Only)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A frontend-only React application that implements user **registration**, **login**, and a **protected dashboard**, using JWT authentication from an external API.
 
-Currently, two official plugins are available:
+## 📌 Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project demonstrates how to build an authentication flow in React using `axios` for API communication, `react-router-dom` for navigation, and `localStorage` for storing tokens and user information. No backend is included — all requests are sent to an external API.
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- ✅ User registration with form input validation
+- 🔐 Login functionality with JWT token handling
+- 🔁 Navigation using `react-router-dom`
+- 📦 Stores authentication token and user info in `localStorage`
+- 📄 Protected dashboard that displays authenticated user details
+- 🚪 Logout functionality
+- ⚙️ Reusable Axios instance for API calls
+- 📚 Clean use of React hooks like `useState`, `useEffect`, and `useNavigate`
+
+## 🛠️ Technologies Used
+
+- React
+- Axios
+- React Router DOM
+- JWT (handled externally)
+- Local Storage
+
+## 🚀 Getting Started
+
+Install dependencies:
+
+```bash
+npm install axios react-router-dom
+```

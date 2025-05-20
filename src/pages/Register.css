@@ -10,7 +10,6 @@
 .register-form {
   padding: 2rem;
   border-radius: 8px;
-  width: 100%;
   max-width: 400px;
 }
 
@@ -28,7 +27,7 @@
 }
 
 .register-form button {
-  /* width: 100%; */
+  width: 100%;
   padding: 0.8rem;
   background-color: #2563eb; /* blue */
   color: white;
